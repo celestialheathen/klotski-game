@@ -1,0 +1,52 @@
+:root {
+  --cell-width: 128px;
+  --cell-height: 128px;
+}
+
+* {
+  font-size: 8px;
+}
+
+#gameboard {
+  margin: 0px auto;
+  border: 1px black solid;
+  height: 768px;
+  width: 512px;
+}
+
+td.exit {
+  height: 32px;
+  color: blue;
+}
+
+td {
+  border: 1px black solid;
+  width: var(--cell-width);
+  height: var(--cell-height);
+}
+
+td.void {
+  display: hidden;
+  height: 32px;
+  border: none;
+}
+
+
+
+/* div#pawn {
+  background-image: url(assets/zak.jpeg);
+  background-size: contain;
+}
+
+div#rook {
+  background-image: url(assets/jahaira.jpeg);
+  background-size: 200% 100%;
+  background-repeat: no-repeat;
+
+}
+
+div#knight {
+  background-image: url(assets/matt.jpeg);
+  background-size: 100% 200%;
+  background-repeat: no-repeat;
+} */

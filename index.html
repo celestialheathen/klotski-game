@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Klotski Game</title>
+  <script src="game.js" defer></script>
+  <link rel="stylesheet" href="index.css">
+</head>
+<body>
+  <!-- Create a 4x6 game board-->
+  <table id="gameboard">
+    <tr>
+      <td id="1" class="empty" ondrop="drop(event)" ondragover="allowDrop(event)">1</td>
+      <td id="2" class="empty" ondrop="drop(event)" ondragover="allowDrop(event)">2</td>
+      <td id="3" class="empty" ondrop="drop(event)" ondragover="allowDrop(event)">3</td>
+      <td id="4" class="empty" ondrop="drop(event)" ondragover="allowDrop(event)">4</td>
+    </tr>
+    <tr>
+      <td id="5" class="empty" ondrop="drop(event)" ondragover="allowDrop(event)">5</td>
+      <td id="6" class="empty" ondrop="drop(event)" ondragover="allowDrop(event)">6</td>
+      <td id="7" class="empty" ondrop="drop(event)" ondragover="allowDrop(event)">7</td>
+      <td id="8" class="empty" ondrop="drop(event)" ondragover="allowDrop(event)">8</td>
+    </tr>
+    <tr>
+      <td id="9" class="empty" ondrop="drop(event)" ondragover="allowDrop(event)">9</td>
+      <td id="10" class="empty" ondrop="drop(event)" ondragover="allowDrop(event)">10</td>
+      <td id="11" class="empty" ondrop="drop(event)" ondragover="allowDrop(event)">11</td>
+      <td id="12" class="empty" ondrop="drop(event)" ondragover="allowDrop(event)">12</td>
+    </tr>
+    <tr>
+      <td id="13" class="empty" ondrop="drop(event)" ondragover="allowDrop(event)">13</td>
+      <td id="14" class="empty" ondrop="drop(event)" ondragover="allowDrop(event)">14</td>
+      <td id="15" class="empty" ondrop="drop(event)" ondragover="allowDrop(event)">15</td>
+      <td id="16" class="empty" ondrop="drop(event)" ondragover="allowDrop(event)">16</td>
+    </tr>
+    <tr>
+      <td id="17" class="empty" ondrop="drop(event)" ondragover="allowDrop(event)">17</td>
+      <td id="18" class="empty" ondrop="drop(event)" ondragover="allowDrop(event)">18</td>
+      <td id="19" class="empty" ondrop="drop(event)" ondragover="allowDrop(event)">19</td>
+      <td id="20" class="empty" ondrop="drop(event)" ondragover="allowDrop(event)">20</td>
+    </tr>
+    <tr>
+      <td class="void"></td>
+      <td class="exit" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
+      <td class="exit" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
+      <td class="void"></td>
+    </tr>
+  </table>
+  
+</body>
+</html>
