@@ -1,5 +1,5 @@
 :root {
-  --cell-width: 128px;
+  --cell-width: 160px;
   --cell-height: 128px;
 }
 
@@ -9,9 +9,8 @@
 
 #gameboard {
   margin: 0px auto;
-  border: 1px black solid;
   height: 768px;
-  width: 512px;
+  width: calc(var(--cell-width) * 8)px;
 }
 
 td.exit {
@@ -21,7 +20,7 @@ td.exit {
 
 td {
   border: 1px black solid;
-  width: var(--cell-width);
+  width: 200px;
   height: var(--cell-height);
 }
 
@@ -33,20 +32,45 @@ td.void {
 
 
 
-/* div#pawn {
-  background-image: url(assets/zak.jpeg);
-  background-size: contain;
+div.pawn {
+  background-image: url(assets/zheng_jiang.png);
+  background-size: 128px 128px;
+  background-repeat: no-repeat;
 }
 
 div#rook {
-  background-image: url(assets/jahaira.jpeg);
-  background-size: 200% 100%;
+  background-image: url(assets/huang_zhong.png);
+  background-size: cover;
   background-repeat: no-repeat;
-
+  background-position: center center;
 }
 
 div#knight {
-  background-image: url(assets/matt.jpeg);
-  background-size: 100% 200%;
+  background-image: url(assets/zhang_fei.png);
+  background-size: 128px 256px;
   background-repeat: no-repeat;
-} */
+} 
+
+div#knight2 {
+  background-image: url(assets/zhao_yun.png);
+  background-size: 128px 256px;
+  background-repeat: no-repeat;
+} 
+
+div#knight3 {
+  background-image: url(assets/guan_yu.png);
+  background-size: 128px 256px;
+  background-repeat: no-repeat;
+} 
+
+div#knight4 {
+  background-image: url(assets/ma_chao.png);
+  background-size: 128px 256px;
+  background-repeat: no-repeat;
+} 
+
+div#king {
+  background-image: url(assets/cao_cao.png);
+  background-size: 256px 256px;
+  background-repeat: no-repeat;
+} 
