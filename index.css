@@ -15,7 +15,8 @@
 
 td.exit {
   height: 32px;
-  color: blue;
+  font-size: 16px;
+  text-align: center;
 }
 
 td {
@@ -29,8 +30,6 @@ td.void {
   height: 32px;
   border: none;
 }
-
-
 
 div.pawn {
   background-image: url(assets/zheng_jiang.png);

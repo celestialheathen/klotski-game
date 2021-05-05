@@ -15,25 +15,11 @@ pawn.draggable = "true"
 pawn.style.position = "relative"
 pawn.style.left = "25px"
 
-pawn.ondragstart = function (event) {
-  event.target.parentElement.className = "empty"
-}
-pawn.ondrag = function (event) {
-  drag(event)
-}
-
-pawn.ontouchstart = function (event) {
-  event.target.parentElement.className = "empty"
-}
-
-pawn.ontouchmove = function (event) {
-  drag(event)
-}
-
-pawn.ontouchend = function (event) {
-  event.preventDefault()
-}
-
+pawn.ondragstart = (e) => e.target.parentElement.className = "empty"
+pawn.ondrag = (e) => drag(e)
+pawn.ontouchstart = (e) => handleTouchStart(e)
+pawn.ontouchmove = (e) => e.preventDefault() // Prevent default to avoid the page from scolling when dragging a piece
+pawn.ontouchend = (e) => handleTouchEnd(e) 
 
 // Second 1x1 pawn piece
 const pawn2 = document.createElement('div')
@@ -47,12 +33,11 @@ pawn2.draggable = "true"
 pawn2.style.position = "relative"
 pawn2.style.left = "25px"
 
-pawn2.ondragstart = function (event) {
-  event.target.parentElement.className = "empty"
-}
-pawn2.ondrag = function (event) {
-  drag(event)
-}
+pawn2.ondragstart = (e) => e.target.parentElement.className = "empty"
+pawn2.ondrag = (e) => drag(e)
+pawn2.ontouchstart = (e) => handleTouchStart(e)
+pawn2.ontouchmove = (e) => e.preventDefault()
+pawn2.ontouchend = (e) => handleTouchEnd(e) 
 
 // Third 1x1 pawn piece
 const pawn3 = document.createElement('div')
@@ -66,12 +51,11 @@ pawn3.draggable = "true"
 pawn3.style.position = "relative"
 pawn3.style.left = "25px"
 
-pawn3.ondragstart = function (event) {
-  event.target.parentElement.className = "empty"
-}
-pawn3.ondrag = function (event) {
-  drag(event)
-}
+pawn3.ondragstart = (e) => e.target.parentElement.className = "empty"
+pawn3.ondrag = (e) => drag(e)
+pawn3.ontouchstart = (e) => handleTouchStart(e)
+pawn3.ontouchmove = (e) => e.preventDefault()
+pawn3.ontouchend = (e) => handleTouchEnd(e) 
 
 // Fourth 1x1 pawn piece
 const pawn4 = document.createElement('div')
@@ -85,12 +69,11 @@ pawn4.draggable = "true"
 pawn4.style.position = "relative"
 pawn4.style.left = "25px"
 
-pawn4.ondragstart = function (event) {
-  event.target.parentElement.className = "empty"
-}
-pawn4.ondrag = function (event) {
-  drag(event)
-}
+pawn4.ondragstart = (e) => e.target.parentElement.className = "empty"
+pawn4.ondrag = (e) => drag(e)
+pawn4.ontouchstart = (e) => handleTouchStart(e)
+pawn4.ontouchmove = (e) => e.preventDefault()
+pawn4.ontouchend = (e) => handleTouchEnd(e) 
 
 
 // 2x1 rook piece
@@ -105,13 +88,18 @@ rook.draggable = "true"
 rook.style.position = "relative"
 rook.style.left = "50px"
 
-rook.ondragstart = function (event) {
-  event.target.parentElement.className = "empty"
-  event.target.parentElement.nextElementSibling.className = "empty"
+rook.ondragstart = (e) => {
+  e.target.parentElement.className = "empty"
+  e.target.parentElement.nextElementSibling.className = "empty"
 }
-rook.ondrag = function (event) {
-  drag(event)
+rook.ondrag = (e) => drag(e)
+rook.ontouchstart = (e) => {   
+  e.target.parentElement.className = "empty"
+  e.target.parentElement.nextElementSibling.className = "empty"
+  dataTrans.setData("text", e.target.id)
 }
+rook.ontouchmove = (e) => e.preventDefault()
+rook.ontouchend = (e) => handleTouchEnd(e) 
 
 // 1x2 knight piece
 const knight = document.createElement('div')
@@ -125,13 +113,18 @@ knight.draggable = "true"
 knight.style.position = "relative"
 knight.style.top = "60px"
 
-knight.ondragstart = function (event) {
-  event.target.parentElement.className = "empty"
-  document.getElementById(String(parseInt(event.target.parentElement.id) + 4)).className = "empty" 
+knight.ondragstart = (e) => {
+  e.target.parentElement.className = "empty"
+  document.getElementById(String(parseInt(e.target.parentElement.id) + 4)).className = "empty" 
 }
-knight.ondrag = function (event) {
-  drag(event)
+knight.ondrag = (e) => drag(e)
+knight.ontouchstart = (e) => {   
+  e.target.parentElement.className = "empty"
+  document.getElementById(String(parseInt(e.target.parentElement.id) + 4)).className = "empty" 
+  dataTrans.setData("text", e.target.id)
 }
+knight.ontouchmove = (e) => e.preventDefault()
+knight.ontouchend = (e) => handleTouchEnd(e) 
 
 // Second 1x2 knight piece
 const knight2 = document.createElement('div')
@@ -145,13 +138,18 @@ knight2.draggable = "true"
 knight2.style.position = "relative"
 knight2.style.top = "60px"
 
-knight2.ondragstart = function (event) {
-  event.target.parentElement.className = "empty"
-  document.getElementById(String(parseInt(event.target.parentElement.id) + 4)).className = "empty" 
+knight2.ondragstart = (e) => {
+  e.target.parentElement.className = "empty"
+  document.getElementById(String(parseInt(e.target.parentElement.id) + 4)).className = "empty" 
 }
-knight2.ondrag = function (event) {
-  drag(event)
+knight2.ondrag = (e) => drag(e)
+knight2.ontouchstart = (e) => {   
+  e.target.parentElement.className = "empty"
+  document.getElementById(String(parseInt(e.target.parentElement.id) + 4)).className = "empty" 
+  dataTrans.setData("text", e.target.id)
 }
+knight2.ontouchmove = (e) => e.preventDefault()
+knight2.ontouchend = (e) => handleTouchEnd(e) 
 
 // Third 1x2 knight piece
 const knight3 = document.createElement('div')
@@ -165,13 +163,18 @@ knight3.draggable = "true"
 knight3.style.position = "relative"
 knight3.style.top = "60px"
 
-knight3.ondragstart = function (event) {
-  event.target.parentElement.className = "empty"
-  document.getElementById(String(parseInt(event.target.parentElement.id) + 4)).className = "empty" 
+knight3.ondragstart = (e) => {
+  e.target.parentElement.className = "empty"
+  document.getElementById(String(parseInt(e.target.parentElement.id) + 4)).className = "empty" 
 }
-knight3.ondrag = function (event) {
-  drag(event)
+knight3.ondrag = (e) => drag(e)
+knight3.ontouchstart = (e) => {   
+  e.target.parentElement.className = "empty"
+  document.getElementById(String(parseInt(e.target.parentElement.id) + 4)).className = "empty" 
+  dataTrans.setData("text", e.target.id)
 }
+knight3.ontouchmove = (e) => e.preventDefault()
+knight3.ontouchend = (e) => handleTouchEnd(e) 
 
 // Fourth 1x2 knight piece
 const knight4 = document.createElement('div')
@@ -185,13 +188,18 @@ knight4.draggable = "true"
 knight4.style.position = "relative"
 knight4.style.top = "60px"
 
-knight4.ondragstart = function (event) {
-  event.target.parentElement.className = "empty"
-  document.getElementById(String(parseInt(event.target.parentElement.id) + 4)).className = "empty" 
+knight4.ondragstart = (e) => {
+  e.target.parentElement.className = "empty"
+  document.getElementById(String(parseInt(e.target.parentElement.id) + 4)).className = "empty" 
 }
-knight4.ondrag = function (event) {
-  drag(event)
+knight4.ondrag = (e) => drag(e)
+knight4.ontouchstart = (e) => {   
+  e.target.parentElement.className = "empty"
+  document.getElementById(String(parseInt(e.target.parentElement.id) + 4)).className = "empty" 
+  dataTrans.setData("text", e.target.id)
 }
+knight4.ontouchmove = (e) => e.preventDefault()
+knight4.ontouchend = (e) => handleTouchEnd(e) 
 
 // 2x2 king piece
 const king = document.createElement('div')
@@ -205,15 +213,22 @@ king.style.position = "relative"
 king.style.top = "60px"
 king.style.left = "60px"
 
-king.ondragstart = function (event) {
-  event.target.parentElement.className = "empty"
-  event.target.parentElement.nextElementSibling.className = "empty"
-  document.getElementById(String(parseInt(event.target.parentElement.id) + 4)).className = "empty" 
-  document.getElementById(String(parseInt(event.target.parentElement.id) + 5)).className = "empty" 
+king.ondragstart = (e) => {
+  e.target.parentElement.className = "empty"
+  e.target.parentElement.nextElementSibling.className = "empty"
+  document.getElementById(String(parseInt(e.target.parentElement.id) + 4)).className = "empty" 
+  document.getElementById(String(parseInt(e.target.parentElement.id) + 5)).className = "empty" 
 }
-king.ondrag = function (event) {
-  drag(event)
+king.ondrag = (e) => drag(e)
+king.ontouchstart = (e) => {   
+  e.target.parentElement.className = "empty"
+  e.target.parentElement.nextElementSibling.className = "empty"
+  document.getElementById(String(parseInt(e.target.parentElement.id) + 4)).className = "empty" 
+  document.getElementById(String(parseInt(e.target.parentElement.id) + 5)).className = "empty" 
+  dataTrans.setData("text", e.target.id)
 }
+king.ontouchmove = (e) => e.preventDefault()
+king.ontouchend = (e) => handleTouchEnd(e) 
 
 const cell2 = document.getElementById("2")
 const cell3 = document.getElementById("3")
@@ -275,7 +290,6 @@ cell20.className = "occupied"
 
 function drop(event) {
   event.preventDefault()
-
   // A piece might be dropped and appended to the div of another piece instead of the td, check if the target is indeed a td
   if (event.target.className === "occupied" || event.target.tagName != "TD") {
     return
@@ -321,15 +335,71 @@ function drop(event) {
   }
 }
 
-function allowDrop(event) {
-  event.preventDefault()
+function handleTouchEnd(e) {
+  e.preventDefault()
+  let endLocation = e.changedTouches[0]
+  let pageX = endLocation.pageX 
+  let pageY = endLocation.pageY
+  const endElement = document.elementFromPoint(pageX, pageY)
+
+  if (endElement.className === "occupied" || endElement.tagName != "TD") {
+    return
+  } else {
+    let data = dataTrans.getData("text")
+    endElement.appendChild(document.getElementById(data))
+    
+    switch (data) {
+      case "pawn": 
+        endElement.className = "occupied"
+        break;
+      case "rook": 
+        endElement.className = "occupied"
+        endElement.nextElementSibling.className = "occupied"
+        break;
+      case "knight":
+        endElement.className = "occupied"
+        const verticalElement = parseInt(endElement.id) + 4
+        document.getElementById(String(verticalElement)).className = "occupied" 
+        break;
+      case "knight2":
+        endElement.className = "occupied"
+        const verticalElement2 = parseInt(endElement.id) + 4
+        document.getElementById(String(verticalElement2)).className = "occupied" 
+        break;
+      case "knight3":
+        endElement.className = "occupied"
+        const verticalElement3 = parseInt(endElement.id) + 4
+        document.getElementById(String(verticalElement3)).className = "occupied" 
+        break;
+      case "knight4":
+        endElement.className = "occupied"
+        const verticalElement4 = parseInt(endElement.id) + 4
+        document.getElementById(String(verticalElement4)).className = "occupied" 
+        break;
+      case "king":
+        endElement.className = "occupied"
+        endElement.nextElementSibling.className = "occupied"
+        document.getElementById(String(parseInt(endElement.parentElement.id) + 4)).className = "occupied" 
+        document.getElementById(String(parseInt(endElement.parentElement.id) + 5)).className = "occupied" 
+        break;
+    }
+  }
 }
 
-function drag(event) {
-  dataTrans.setData("text", event.target.id)
+function allowDrop(e) {
+  e.preventDefault()
 }
 
-exitCell1.ondrop = function (event) {
+function drag(e) {
+  dataTrans.setData("text", e.target.id)
+}
+
+function handleTouchStart(e) {
+  e.target.parentElement.className = "empty"
+  dataTrans.setData("text", e.target.id)
+}
+
+exitCell1.ondrop = () => {
   let data = dataTrans.getData("text")
   if (data != "king") {
     return
@@ -338,7 +408,7 @@ exitCell1.ondrop = function (event) {
   }
 }
 
-exitCell2.ondrop = function (event) {
+exitCell2.ondrop = () => {
   let data = dataTrans.getData("text")
   if (data != "king") {
     return
