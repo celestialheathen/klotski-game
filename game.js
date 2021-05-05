@@ -22,6 +22,19 @@ pawn.ondrag = function (event) {
   drag(event)
 }
 
+pawn.ontouchstart = function (event) {
+  event.target.parentElement.className = "empty"
+}
+
+pawn.ontouchmove = function (event) {
+  drag(event)
+}
+
+pawn.ontouchend = function (event) {
+  event.preventDefault()
+}
+
+
 // Second 1x1 pawn piece
 const pawn2 = document.createElement('div')
 pawn2.style.width = "80%"
