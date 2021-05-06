@@ -7,6 +7,11 @@
   font-size: 8px;
 }
 
+main {
+  display: flex;
+  flex-direction: row;
+}
+
 #gameboard {
   margin: 0px auto;
   height: 768px;
@@ -73,3 +78,15 @@ div#king {
   background-size: 256px 256px;
   background-repeat: no-repeat;
 } 
+
+section {
+  display: flex;
+  flex-direction: column;
+  margin: 80px 80px;
+}
+
+button {
+  margin: 20px;
+  padding: 20px 40px;
+  font-size: 22px;
+}

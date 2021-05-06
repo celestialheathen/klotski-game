@@ -1,6 +1,9 @@
 let dataTrans = new DataTransfer()
 const exitCell1 = document.getElementById("22")
-const exitCell2 = document.getElementById("23")
+const easyBtn = document.getElementById("easy")
+const mediumBtn = document.getElementById("medium")
+const hardBtn = document.getElementById("hard")
+const resetBtn = document.getElementById("reset")
 
 
 // 1x1 pawn piece
@@ -328,8 +331,10 @@ function drop(event) {
       case "king":
         event.target.className = "occupied"
         event.target.nextElementSibling.className = "occupied"
-        document.getElementById(String(parseInt(event.target.parentElement.id) + 4)).className = "occupied" 
-        document.getElementById(String(parseInt(event.target.parentElement.id) + 5)).className = "occupied" 
+        const verticalElement5 = parseInt(event.target.id) + 4
+        const verticalElement6 = parseInt(event.target.id) + 5
+        document.getElementById(String(verticalElement5)).className = "occupied" 
+        document.getElementById(String(verticalElement6)).className = "occupied" 
         break;
     }
   }
@@ -408,11 +413,26 @@ exitCell1.ondrop = () => {
   }
 }
 
-exitCell2.ondrop = () => {
-  let data = dataTrans.getData("text")
-  if (data != "king") {
-    return
-  } else {
-    alert("You have won the game!")
-  }
-}
+
+easyBtn.addEventListener("click", () => {
+  knight.remove()
+  knight2.remove()
+  cell1.className = "empty"
+  cell5.className = "empty"
+  cell4.className = "empty"
+  cell8.className = "empty"
+})
+
+mediumBtn.addEventListener("click", () => {
+  rook.remove()
+  cell10.className = "empty"
+  cell11.className = "empty"
+})
+
+hardBtn.addEventListener("click", () => {
+  location.reload()
+})
+
+resetBtn.addEventListener("click", ()=> {
+  location.reload()
+})
